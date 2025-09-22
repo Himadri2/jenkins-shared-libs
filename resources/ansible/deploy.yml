@@ -1,0 +1,26 @@
+---
+- name: Deploy Docker container on ASG servers
+  hosts: tag_Role_docker-node
+  become: yes
+
+  tasks:
+    - name: Pull Docker image
+      community.docker.docker_image:
+        name: himadri9/my-app:latest
+        source: pull
+
+    - name: Stop existing container (if running)
+      community.docker.docker_container:
+        name: my-app
+        state: absent
+        force_kill: yes
+      ignore_errors: yes
+
+    - name: Run Docker container
+      community.docker.docker_container:
+        name: my-app
+        image: himadri9/my-app:latest
+        state: started
+        restart_policy: always
+        ports:
+          - "3000:3000"
