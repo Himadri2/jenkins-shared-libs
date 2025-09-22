@@ -1,6 +1,6 @@
 ---
 - name: Deploy Docker container on ASG servers
-  hosts: tag_Role_docker-node
+  hosts: _docker-node
   become: yes
 
   tasks:
