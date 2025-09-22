@@ -1,0 +1,9 @@
+plugin: aws_ec2
+regions:
+  - ap-south-1
+filters:
+  tag:Role: docker-node
+hostnames:
+  - private-ip-address
+keyed_groups:
+  - key: tags.Role
