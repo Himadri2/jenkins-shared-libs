@@ -8,6 +8,7 @@
       community.docker.docker_image:
         name: himadri9/my-app:latest
         source: pull
+        force: yes
 
     - name: Stop existing container (if running)
       community.docker.docker_container:
