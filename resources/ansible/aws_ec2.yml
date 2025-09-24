@@ -7,3 +7,5 @@ hostnames:
   - instance-id
 keyed_groups:
   - key: tags.Role
+compose:
+  ansible_connection: aws_ssm
